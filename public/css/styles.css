@@ -1,5 +1,9 @@
 /* General Styles */
-
+header a.active {
+    background-color: rgb(87, 53, 211);
+    color: white;
+    padding: 4px;
+}
 * {
     margin: 0;
     padding: 0;
@@ -17,6 +21,7 @@ input {
 body {
     line-height: 1.4;
     color: #333333;
+
     font-family: Helvetica, Arial, sans-serif;
 }
 
@@ -149,7 +154,7 @@ button:disabled {
 }
 
 .compose input {
-    border: 1px solid #eeeeee;
+    border: 1px solid #19d312;
     width: 100%;
     padding: 12px;
     margin: 0 16px 0 0;

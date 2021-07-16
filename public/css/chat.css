@@ -1,6 +1,7 @@
 .chat{
     padding: 0;
 }
+
 header {
     margin-top: 16px;
     margin-bottom: 28px;
@@ -16,7 +17,10 @@ header a {
     text-decoration: none;
     font-size: 18px;
 }
-
+header a.active {
+    background-color: rgb(95, 7, 107);
+    color: white;
+}
 .main-content {
     color: #333333;
     font-family: arial;

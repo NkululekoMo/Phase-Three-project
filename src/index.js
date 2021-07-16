@@ -1,13 +1,15 @@
 const path = require('path')
 const http = require('http')
 const express = require('express')
+//var app = require('express')();
 const socketio = require('socket.io')
+const mongoose = require('mongoose')
 const { generatemsg, generateLocation } = require('./utils/messages')
 
 const { addUser, removeUser, getUser, getUserInRoom } = require('./utils/users')
 
 
-const app = express()
+const app = require('express')()
 const server = http.createServer(app)
 const io = socketio(server)
 
@@ -19,7 +21,7 @@ app.use(express.static(publicdir))
 
 
 io.on("connection", (socket) => {
-    console.log("new connection")
+    console.log("New User Connected Successfully. ")
 
     socket.on("join", ({ username, room }, cb) => {
 
@@ -29,8 +31,8 @@ io.on("connection", (socket) => {
             return cb(error)
         }
         socket.join(user.room)
-        socket.emit("message", generatemsg("Admin ,Welcome"))
-        socket.broadcast.to(user.room).emit("message", generatemsg(`Admin ${user.username} has joined!`))
+        socket.emit("message", generatemsg("ADMIN, WELCOME"))
+        socket.broadcast.to(user.room).emit("message", generatemsg(`ADMIN ${user.username} has joined!`))
 
         io.to(user.room).emit("roomData", {
             room: user.room,
@@ -69,5 +71,5 @@ io.on("connection", (socket) => {
 
 })
 server.listen(PORT, () => {
-    console.log("server s up" + PORT)
+    console.log("Server is starting at post: " + PORT)
 })

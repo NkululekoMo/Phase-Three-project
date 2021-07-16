@@ -21,7 +21,7 @@ const addUser = ({ id, username, room }) => {
     //va;idate username
     if (existingUser) {
         return {
-            error: "username iss already used"
+            error: "username is already used"
         }
     }
 
